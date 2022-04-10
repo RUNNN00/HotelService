@@ -8,4 +8,7 @@ Suas funções são:
 - Alugar quarto
 - Disponibilizar quarto
 
-> Curso de Orientação a Objeto de Nélio Alves
+> Curso de Orientação a Objeto de **Nélio Alves.**
+
+-----------------------------------------------
+Obs: ignorem os erros de inglês rs.
