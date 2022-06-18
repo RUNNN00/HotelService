@@ -1,17 +1,13 @@
-package entities;
+package model.entities;
 
 public class Hospede {
 	String nome;
 	String email;
-	byte numQuarto;
 
-	public Hospede(String nome, String email, byte numQuarto) {
-		super();
+	public Hospede(String nome, String email) {
 		this.nome = nome;
 		this.email = email;
-		this.numQuarto = numQuarto;
 	}
-	
 
 	public String getNome() {
 		return nome;
@@ -29,15 +25,8 @@ public class Hospede {
 		this.email = email;
 	}
 
-	public byte getNumQuarto() {
-		return numQuarto;
-	}
-
-	public void setNumQuarto(byte numQuarto) {
-		this.numQuarto = numQuarto;
-	}
-
 	public String toString() {
-		return "Nome: " + nome + "\nE-mail: " + email + "\nApto. " + numQuarto;
+		return "Nome: " + nome + "\n"
+				+ "E-mail: " + email;
 	}
 }
