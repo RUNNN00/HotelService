@@ -15,11 +15,11 @@ public class Main {
 		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
 
-		// Por se tratar de um projeto didático, estamos instanciando todos os aptos vazios.
+		// Por se tratar de um projeto didático, estamos instanciando todos os aptos
+		// vazios.
 		// O ideal é chama-los de um banco de dados com suas informações salvas.
 		Apto[] vectorAptos = new Apto[10];
-		for (int i = 0; i < vectorAptos.length; i++)
-		{
+		for (int i = 0; i < vectorAptos.length; i++) {
 			vectorAptos[i] = new Apto(i + 1);
 		}
 
@@ -73,7 +73,14 @@ public class Main {
 				break;
 			case 3:
 				System.out.println("\nQUARTOS OCUPADOS");
-				// TODO mostrar quartos ocupados e lista de hospedes
+				for (int i = 0; i < vectorAptos.length; i++) {
+					if (!vectorAptos[i].isAvailable())
+						System.out.println(vectorAptos[i].toString());
+					else
+						System.out.println("...");
+				}
+				System.out.println();
+				break;
 			case 0:
 				System.out.println("\nGood Bye ;)");
 				break;

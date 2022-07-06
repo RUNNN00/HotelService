@@ -39,4 +39,21 @@ public class Apto {
 	public int countReservation() {
 		return listReservations.size();
 	}
+
+	@Override
+	public String toString() {
+		String str = new String();
+		str = "APTO " + number + ": ";
+
+		if (available) {
+			str += " DISPONIVEL";
+		} else {
+			str += " possui " + listReservations.size() + " reservas\n";
+			for (Reservation r : listReservations) {
+				str += r.getHospedeName() + " - " + r.duration() + " dias\n";
+			}
+		}
+
+		return str;
+	}
 }

@@ -44,12 +44,18 @@ public class Reservation {
 		checkIn = in;
 		checkOut = out;
 	}
+	
+	public String getHospedeName() {
+		return hospede.getNome();
+	}
 
 	@Override
 	public String toString() {
-		String description = "Reservation" + "\n" + "Hospede: " + hospede.getNome() + "\n" + "check-In: "
-				+ sdf.format(checkIn) + "\n" + "check-Out: " + sdf.format(checkOut) + "\n" + "Duration: "
-				+ (inderteminate ? "indeterminado" : duration() + "daily");
+		String description = "Reservation" + "\n"
+				+ "Hospede: " + hospede.getNome() + "\n"
+				+ "check-In: " + sdf.format(checkIn) + "\n"
+				+ "check-Out: " + sdf.format(checkOut) + "\n"
+				+ "Duration: " + (inderteminate ? "indeterminado" : duration() + "daily");
 
 		return description;
 	}
