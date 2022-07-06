@@ -11,7 +11,7 @@ import model.entities.Hospede;
 import model.entities.Reservation;
 
 public class Main {
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
 
@@ -47,6 +47,7 @@ public class Main {
 
 			switch (option) {
 			case 1:
+				try {
 				System.out.println("\nINSCRIÇÃO");
 				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 				System.out.print("nome: ");
@@ -66,6 +67,17 @@ public class Main {
 				vectorAptos[num - 1].addReservation(reserv);
 
 				System.out.println("\nINSCRIÇÃO COMPLETA\n");
+				}
+				catch (ParseException e) {
+					System.out.println("formato de data inválido");
+				}
+				catch (IllegalAccessError e) {
+					System.out.println("Erro na data de reserva: " + e.getMessage());
+				}
+				catch (IllegalArgumentException e) {
+					System.out.println("Erro na data de reserva: " + e.getMessage());
+				}
+				
 				break;
 			case 2:
 				System.out.println("\nDISPONIBILIZAR QUARTO");

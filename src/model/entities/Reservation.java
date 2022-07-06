@@ -1,5 +1,6 @@
 package model.entities;
 
+import java.rmi.AccessException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -16,6 +17,9 @@ public class Reservation {
 		this.hospede = hospede;
 		this.checkIn = checkIn;
 
+		if (checkIn == null)
+			throw new IllegalAccessError("Data de checkIn não encontrada");
+		
 		if (checkOut == null) {
 			this.checkOut = null;
 			inderteminate = true;
@@ -23,6 +27,12 @@ public class Reservation {
 			this.checkOut = checkOut;
 			inderteminate = false;
 		}
+		
+		Date now = new Date();
+		if (checkIn.before(now) || checkOut.before(now))
+			throw new IllegalArgumentException("Não é possivel fazer reservas em datas passadas");
+		else if (checkOut.before(checkIn))
+			throw new IllegalArgumentException("checkOut deve ser posterior a data de checkIn");
 	}
 
 	public Date getCheckIn() {
